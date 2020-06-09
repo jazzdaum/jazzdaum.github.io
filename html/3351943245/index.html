@@ -20,7 +20,7 @@
 <meta property="og:description" content="Hexo杂记hexo d后 ERROR Deployer not found: git $ hexo dERROR Deployer not found: git npm install --save hexo-deployer-git 如果想要在Hexo放图片可以安装 hexo-asset-image插件： 在_config.yml文件中设置 post_asset_folder: true $n">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-09T06:58:21.000Z">
-<meta property="article:modified_time" content="2020-06-09T08:06:16.254Z">
+<meta property="article:modified_time" content="2020-06-09T08:28:13.973Z">
 <meta property="article:author" content="范阳布衣">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -57,7 +57,7 @@
 <link rel="stylesheet" href="/custom.css">
 
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="范阳布衣" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 <body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
   <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
   <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
@@ -160,7 +160,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-7.png" style="max-height: 240px;">
+      <img src="/images/random/material-5.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">hexo杂记</div>
@@ -226,18 +226,29 @@
 <li><p>安装abbrlink插件<br>npm install hexo-abbrlink –save</p>
 </li>
 <li><p>编辑站点配置文件<br>打开博客根目录下的站点配置文件_config.yml，修改如下配置：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#permalink</span>: <span class="selector-pseudo">:year</span>/<span class="selector-pseudo">:month</span>/<span class="selector-pseudo">:day</span>/<span class="selector-pseudo">:title</span>/</span><br><span class="line"><span class="selector-id">#permalink_defaults</span>:</span><br><span class="line"><span class="selector-tag">permalink</span>: <span class="selector-tag">posts</span>/<span class="selector-pseudo">:abbrlink</span>/</span><br><span class="line"><span class="selector-tag">abbrlink</span>:</span><br><span class="line">  <span class="selector-tag">alg</span>: <span class="selector-tag">crc32</span> <span class="selector-id">#support</span> <span class="selector-tag">crc16</span>(default) <span class="selector-tag">and</span> <span class="selector-tag">crc32</span></span><br><span class="line">  <span class="selector-tag">rep</span>: <span class="selector-tag">dec</span>   <span class="selector-id">#support</span> <span class="selector-tag">dec</span>(default) <span class="selector-tag">and</span> <span class="selector-tag">hex</span></span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>#permalink: :year/:month/:day/:title/
+#permalink_defaults:
+permalink: posts/:abbrlink/
+abbrlink:
+alg: crc32 #support crc16(default) and crc32
+rep: dec   #support dec(default) and hex</code></pre></li>
 <li><p>下面解释说明一下：</p>
 </li>
 </ul>
 <p>首先指定Hexo文章永久链接的格式，接下来两个是abbrlink插件的设置：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alg -- Algorithm (<span class="name">currently</span> support crc16 and crc32, which crc16 is default)</span><br><span class="line">rep -- Represent (<span class="name">the</span> generated link could be presented in hex or dec value)</span><br></pre></td></tr></table></figure>
+<pre><code>alg -- Algorithm (currently support crc16 and crc32, which crc16 is default)
+rep -- Represent (the generated link could be presented in hex or dec value)</code></pre><p>这两个设置的示例如下：</p>
+<pre><code>crc16 &amp; hex
+https://post.zz173.com/posts/66c8.html
 
-<p>这两个设置的示例如下：</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">crc16 <span class="meta">&amp; hex</span></span><br><span class="line">https:<span class="comment">//post.zz173.com/posts/66c8.html</span></span><br><span class="line"></span><br><span class="line">crc16 <span class="meta">&amp; dec</span></span><br><span class="line">https:<span class="comment">//post.zz173.com/posts/65535.html</span></span><br><span class="line"></span><br><span class="line">crc32 <span class="meta">&amp; hex</span></span><br><span class="line">https:<span class="comment">//post.zz173.com/posts/8ddf18fb.html</span></span><br><span class="line"></span><br><span class="line">crc32 <span class="meta">&amp; dec</span></span><br><span class="line">https:<span class="comment">//post.zz173.com/posts/1690090958.html</span></span><br></pre></td></tr></table></figure>
+crc16 &amp; dec
+https://post.zz173.com/posts/65535.html
 
-<p>使用hexo clean &amp;&amp; hexo g重新生成博客，在博客源文件可以看到自动生成的abbrlink编号：</p>
+crc32 &amp; hex
+https://post.zz173.com/posts/8ddf18fb.html
+
+crc32 &amp; dec
+https://post.zz173.com/posts/1690090958.html</code></pre><p>使用hexo clean &amp;&amp; hexo g重新生成博客，在博客源文件可以看到自动生成的abbrlink编号：</p>
 
       <blockquote class="mdui-m-t-5">
         
