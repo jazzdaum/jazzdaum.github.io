@@ -8,31 +8,34 @@
   <meta name="renderer" content="webkit">
 
   
-  <title>tomcat | 范阳布衣</title>
+  <title>Linux系统升级时不升内核操作 | 范阳布衣</title>
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="范阳布衣">
-  <meta name="description" content="范阳布衣的博客">
+  <meta name="description" content="RedHat&#x2F;CentOS使用 yum update 更新时，默认会升级内核。但有些服务器硬件在升级内核后，新的内核可能会认不出某些硬件，要重新安装驱动，很麻烦。所以在生产环境中不要轻易的升级内核，除非您确定升级内核后不会出现麻烦的问题。  如果使用yum update更新时不升级内核，有两种方法： 方法一直接在yum的命令后面加参数，这个命令只生效一次：yum update --exclude">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tomcat">
-<meta property="og:url" content="http://yoursite.com/tomcat/index.html">
+<meta property="og:title" content="Linux系统升级时不升内核操作">
+<meta property="og:url" content="http://yoursite.com/posts/1487789122/index.html">
 <meta property="og:site_name" content="范阳布衣">
-<meta property="og:description" content="范阳布衣的博客">
+<meta property="og:description" content="RedHat&#x2F;CentOS使用 yum update 更新时，默认会升级内核。但有些服务器硬件在升级内核后，新的内核可能会认不出某些硬件，要重新安装驱动，很麻烦。所以在生产环境中不要轻易的升级内核，除非您确定升级内核后不会出现麻烦的问题。  如果使用yum update更新时不升级内核，有两种方法： 方法一直接在yum的命令后面加参数，这个命令只生效一次：yum update --exclude">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-09T06:06:26.000Z">
-<meta property="article:modified_time" content="2020-06-09T06:12:40.096Z">
+<meta property="og:image" content="http://yoursite.com/posts/1487789122/1591686764931.png">
+<meta property="og:image" content="http://yoursite.com/posts/1487789122/82240e8137a6e61ec8279de60f5e6553_7fa8282ad93047a-1.png">
+<meta property="og:image" content="http://yoursite.com/posts/1487789122/b497bebf8544aa78b323a7c91d231147_7fa8282ad93047a.png">
+<meta property="article:published_time" content="2020-06-09T07:05:39.000Z">
+<meta property="article:modified_time" content="2020-06-09T08:01:07.080Z">
 <meta property="article:author" content="范阳布衣">
-<meta property="article:tag" content="tomcat">
-<meta property="article:tag" content="web">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/posts/1487789122/1591686764931.png">
 
-  <meta name="keywords" content=",tomcat,web">
+  <meta name="keywords" content=",Linux">
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="范阳布衣">
-  <meta name="msapplication-starturl" content="http://yoursite.com/tomcat/">
+  <meta name="msapplication-starturl" content="http://yoursite.com/posts/1487789122/">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="范阳布衣">
@@ -40,7 +43,7 @@
   <link rel="apple-touch-icon" href="/images/favicon.png">
 
   
-    <link rel="canonical" href="http://yoursite.com/tomcat/">
+    <link rel="canonical" href="http://yoursite.com/posts/1487789122/">
   
 
   
@@ -161,10 +164,10 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-16.png" style="max-height: 240px;">
+      <img src="/images/random/material-9.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
-          <div class="mdui-card-primary-title">tomcat</div>
+          <div class="mdui-card-primary-title">Linux系统升级时不升内核操作</div>
           <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-06-09 / <i class="iconfont">&#xe601;</i> 范阳布衣</div>
         </div>
       </div>
@@ -177,7 +180,7 @@
             
             <li class="mdui-menu-item" disabled>
               
-                <img src="http://qr.liantu.com/api.php?w=246&m=10&text=http://yoursite.com/tomcat/">
+                <img src="http://qr.liantu.com/api.php?w=246&m=10&text=http://yoursite.com/posts/1487789122/">
               
             </li>
           </ul>
@@ -186,44 +189,69 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=tomcat&url=http://yoursite.com/tomcat/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=Linux系统升级时不升内核操作&url=http://yoursite.com/posts/1487789122/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=tomcat&url=http://yoursite.com/tomcat/&via=范阳布衣" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=Linux系统升级时不升内核操作&url=http://yoursite.com/posts/1487789122/&via=范阳布衣" target="_blank" class="mdui-ripple">分享到 Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/tomcat/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/posts/1487789122/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://yoursite.com/tomcat/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+              <a href="https://plus.google.com/share?url=http://yoursite.com/posts/1487789122/" target="_blank" class="mdui-ripple">分享到 Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/tomcat/&title=tomcat" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/posts/1487789122/&title=Linux系统升级时不升内核操作" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=范阳布衣&title=tomcat&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/tomcat/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=范阳布衣&title=Linux系统升级时不升内核操作&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/posts/1487789122/" target="_blank" class="mdui-ripple">分享到 QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://yoursite.com/tomcat/&text=tomcat" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/posts/1487789122/&text=Linux系统升级时不升内核操作" target="_blank" class="mdui-ripple">分享到 Telegram</a>
             </li>
           </ul>
         
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      
+      <blockquote>
+<p>RedHat/CentOS使用 yum update 更新时，默认会升级内核。但有些服务器硬件在升级内核后，新的内核可能会认不出某些硬件，要重新安装驱动，很麻烦。所以在生产环境中不要轻易的升级内核，除非您确定升级内核后不会出现麻烦的问题。</p>
+</blockquote>
+<p>如果使用yum update更新时不升级内核，有两种方法：</p>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>直接在yum的命令后面加参数，这个命令只生效一次：<br><code>yum update --exclude=kernel*</code></p>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>修改yum命令的配置文件，永久生效。<br>这里以 CentOS 6.6 为例来进行说明：</p>
+<p>1、首先检查内核版本以及系统版本。</p>
+<pre><code>[root@localhost ~]# uname -r
+2.6.32-504.el6.x86_64
+[root@localhost ~]# cat /etc/issue
+CentOS release 6.6 (Final)
+Kernel \r on an \m</code></pre><p>2、将配置文件保存备份。</p>
+<pre><code>[root@localhost ~]# cp /etc/yum.conf /etc/yum.conf.bak</code></pre><p>3、编辑/etc/yum.conf文件。</p>
+<pre><code>[root@localhost ~]# vi /etc/yum.conf</code></pre><p><img src="/posts/1487789122/1591686764931.png" alt="NAME"></p>
+<p>4、在[main]的后面加入如下内容：</p>
+<pre><code>exclude=kernel*</code></pre><p><img src="/posts/1487789122/82240e8137a6e61ec8279de60f5e6553_7fa8282ad93047a-1.png" alt="NAME"></p>
+<p>5、按下Esc，输入下面命令进行保存：wq。</p>
+<p>6、使用 yum update更新。</p>
+<pre><code>[root@localhost yum.repos.d]# yum update</code></pre><p>7、等到<code>yum update</code>更新完成之后重启电脑，再来检查内核版本。</p>
+<pre><code>[root@localhost ~]# uname -r
+2.6.32-504.el6.x86_64
+[root@localhost ~]# cat /etc/issue
+CentOS release 6.8 (Final)
+Kernel \r on an \m</code></pre><p><img src="/posts/1487789122/b497bebf8544aa78b323a7c91d231147_7fa8282ad93047a.png" alt="NAME"></p>
+<p>可以看到<code>yum update</code>后系统版本升级了，内核版本没有升级。如果同时要禁止升级系统，则在其 <code>[main]</code> 部分末尾增加 <code>“exclude=kernel centos-release”</code>。</p>
+
       <blockquote class="mdui-m-t-5">
         
-        <strong>本文链接：</strong><br><a href="http://yoursite.com/tomcat/">http://yoursite.com/tomcat/</a>
+        <strong>本文链接：</strong><br><a href="http://yoursite.com/posts/1487789122/">http://yoursite.com/posts/1487789122/</a>
       </blockquote>
       
     </div>
     <footer class="mdui-card-actions">
       
-        <a class="mdui-ripple article_categories-link" href="/categories/Tomcat/">Tomcat</a>
+        <a class="mdui-ripple article_categories-link" href="/categories/Linux/">Linux</a>
       
       
-        <a class="mdui-ripple article_tags-link" href="/tags/tomcat/" rel="tag">tomcat</a><a class="mdui-ripple article_tags-link" href="/tags/web/" rel="tag">web</a>
+        <a class="mdui-ripple article_tags-link" href="/tags/Linux/" rel="tag">Linux</a>
       
     </footer>
     
@@ -237,14 +265,9 @@
 
   <nav id="paginator">
     
-      <a rel="prev" class="extend prev" href="/hexo%E6%9D%82%E8%AE%B0/">
-        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
-      </a>
-    
     <div class="spacer"></div>
     
-      <a rel="next" class="extend next" href="/hello-world/">
+      <a rel="next" class="extend next" href="/posts/3351943245/">
         下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
       </a>
