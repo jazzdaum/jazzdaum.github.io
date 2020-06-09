@@ -5,9 +5,9 @@
   <subtitle>运维博客|自动化运维|云计算|集群</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2020-06-09T08:01:07.080Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://blog.zyrcc.cn/"/>
+  <updated>2020-06-09T09:18:06.466Z</updated>
+  <id>http://blog.zyrcc.cn/</id>
   
   <author>
     <name>范阳布衣</name>
@@ -17,9 +17,83 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>docker安装</title>
+    <link href="http://blog.zyrcc.cn/html/846297051/"/>
+    <id>http://blog.zyrcc.cn/html/846297051/</id>
+    <published>2020-06-09T09:08:13.000Z</published>
+    <updated>2020-06-09T09:18:06.466Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h2><h4 id="Docker是什么"><a href="#Docker是什么" class="headerlink" title="Docker是什么"></a>Docker是什么</h4><p>Docker是一个开源的应用容器引擎，使用Go语言开发，基于Linux内核的cgroup，namespace，Union FS等技术，对应用进程进行封装隔离，并且独立于宿主机与其他进程，这种运行时封装的状态称为容器。 Docker早起版本实现是基于LXC，并进一步对其封装，包括文件系统、网络互联、镜像管理等方面，极大简化了容器管理。从0.7版本以后开始去除LXC，转为自行研发的libcontainer，从1.11版本开始，进一步演进为使用runC和containerd。 Docker理念是将应用及依赖包打包到一个可移植的容器中，可发布到任意Linux发行版Docker引擎上。使用沙箱机制运行程序，程序之间相互隔离。</p><h4 id="Docker体系结构"><a href="#Docker体系结构" class="headerlink" title="Docker体系结构"></a>Docker体系结构</h4><p><img src="/html/846297051/b7ce68da59d08d901b59f80d780efb5d_65714e4ee6ccb14858814148230a3c48.png" alt="NAME"></p><ul><li>Containerd：是一个简单的守护进程，使用runC管理容器。向Docker Engine提供接口。</li><li>Shim：只负责管理一个容器。</li><li>runC：是一个轻量级的工具，只用来运行容器。</li></ul><h4 id="内部组件"><a href="#内部组件" class="headerlink" title="内部组件"></a>内部组件</h4><p>Ø  Namespaces<br>命名空间，Linux内核提供的一种对进程资源隔离的机制，例如进程、网络、挂载点等资源。<br>Ø  CGroups<br>控制组，Linux内核提供的一种限制进程资源的机制；例如CPU、内存等资源。<br>Ø  UnionFS<br>联合文件系统，支持将不同位置的目录挂载到同一虚拟文件系统，形成一种分层的模型。</p><h4 id="虚拟机与容器区别"><a href="#虚拟机与容器区别" class="headerlink" title="虚拟机与容器区别"></a>虚拟机与容器区别</h4><p>1 以KVM举例，与Docker对比</p><p>Ø  启动时间<br>Docker秒级启动，KVM分钟级启动。</p><p>Ø  轻量级<br>容器镜像大小通常以M为单位，虚拟机以G为单位。</p><p>容器资源占用小，要比虚拟机部署更快速。</p><p>Ø  性能<br>容器共享宿主机内核，系统级虚拟化，占用资源少，没有Hypervisor层开销，容器性能基本接近物理机；<br>虚拟机需要Hypervisor层支持，虚拟化一些设备，具有完整的GuestOS，虚拟化开销大，因而降低性能，没有容器性能好。</p><p>Ø  安全性<br>由于共享宿主机内核，只是进程级隔离，因此隔离性和稳定性不如虚拟机，容器具有一定权限访问宿主机内核，存在一定安全隐患。</p><p>Ø  使用要求<br>KVM基于硬件的完全虚拟化，需要硬件CPU虚拟化技术支持；</p><p>容器共享宿主机内核，可运行在主流的Linux发行版，不用考虑CPU是否支持虚拟化技术。</p><h4 id="Docker应用场景"><a href="#Docker应用场景" class="headerlink" title="Docker应用场景"></a>Docker应用场景</h4><p>场景一：节省项目环境部署时间</p><p>单项目打包<br>整套项目打包<br>新开源技术试用<br>场景二：环境一致性<br>场景三：持续集成<br>场景四：微服务<br>场景五：弹性伸缩</p><h4 id="Linux安装Docker"><a href="#Linux安装Docker" class="headerlink" title="Linux安装Docker"></a>Linux安装Docker</h4><p>版本区分 在2017年5月份左右开始划分版本</p><p>Docker EE企业版本<br>Docker CE开发版本<br>官方安装文档：<br><code>https://docs.docker.com/engine/installation/linux/docker-ce/centos/#docker-ee-customers</code></p><p>CentOS7安装docker<br>安装依赖包</p><pre><code>yum install -y yum-utils device-mapper-persistent-data lvm2</code></pre><p>添加Docker软件包源</p><pre><code>yum-config-manager \--add-repo \https://download.docker.com/linux/centos/docker-ce.repo</code></pre><p>更新yum包索引</p><pre><code>yum makecache fast</code></pre><p>安装Docker CE</p><pre><code>yum install docker-ce</code></pre><p>启动</p><pre><code>systemctl start dockersystemcet enable docker</code></pre><p>卸载</p><pre><code>yum remove docker-ce rm -rf /var/lib/docker</code></pre><p>查看docker版本</p><pre><code>docker info</code></pre><p>安装指定版本的Docker-CE:</p><pre><code># Step 1: 查找Docker-CE的版本:# yum list docker-ce.x86_64 --showduplicates | sort -r#   Loading mirror speeds from cached hostfile#   Loaded plugins: branch, fastestmirror, langpacks#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            docker-ce-stable#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            @docker-ce-stable#   docker-ce.x86_64            17.03.0.ce-1.el7.centos            docker-ce-stable#   Available Packages# Step2 : 安装指定版本的Docker-CE: (VERSION 例如上面的 17.03.0.ce.1-1.el7.centos)# sudo yum -y install docker-ce-[VERSION]# yum -y install docker-ce-17.12.0.ce-1.el7.centos</code></pre><p>Ubuntu14.06/16.04<br>安装证书</p><pre><code>sudo apt-get install \apt-transport-https \a-certificates \curl \software-properties-common</code></pre><p>添加Docker源的KEY</p><pre><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre><p>添加Docker软件包源</p><pre><code>sudo add-apt-repository \&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \$(lsb_release -cs) \stable&quot;</code></pre><p>更新apt包索引</p><pre><code>sudo apt-get update</code></pre><p>安装</p><pre><code>sudo apt-get install docker-ce</code></pre><p>卸载</p><pre><code>sudo apt-get purge docker-cesudo rm -rf /var/lib/docker</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;docker安装&quot;&gt;&lt;a href=&quot;#docker安装&quot; class=&quot;headerlink&quot; title=&quot;docker安装&quot;&gt;&lt;/a&gt;docker安装&lt;/h2&gt;&lt;h4 id=&quot;Docker是什么&quot;&gt;&lt;a href=&quot;#Docker是什么&quot; class=&quot;he
+      
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="http://blog.zyrcc.cn/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="http://blog.zyrcc.cn/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7安装图形界面</title>
+    <link href="http://blog.zyrcc.cn/html/938704051/"/>
+    <id>http://blog.zyrcc.cn/html/938704051/</id>
+    <published>2020-06-09T09:02:21.000Z</published>
+    <updated>2020-06-09T09:13:18.435Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="登录云主机，执行命令："><a href="#登录云主机，执行命令：" class="headerlink" title="登录云主机，执行命令："></a>登录云主机，执行命令：</h3><p>1.安装x window包<br><code>yum -y groupinstall &quot;X Window System&quot;</code></p><p>2.#安装Gnome包<br><code>yum -y groupinstall &quot;GNOME Desktop&quot;</code></p><p>3.#运行级别启动图形界面<br><code>ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target</code></p><p>4.重启服务器生效<br><code>reboot</code></p><p>重启后通过控制台，远程连接vnc功能登录，可以看到图形界面，如图：<br>X Window<br><img src="/html/938704051/66061383962f8eed32cfc7d0fb2b25ee_7fa8282ad93047a.jpg" alt="NAME"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;登录云主机，执行命令：&quot;&gt;&lt;a href=&quot;#登录云主机，执行命令：&quot; class=&quot;headerlink&quot; title=&quot;登录云主机，执行命令：&quot;&gt;&lt;/a&gt;登录云主机，执行命令：&lt;/h3&gt;&lt;p&gt;1.安装x window包&lt;br&gt;&lt;code&gt;yum -y grou
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Centos 使用Systemctl报Error getting authority</title>
+    <link href="http://blog.zyrcc.cn/html/3351943243/"/>
+    <id>http://blog.zyrcc.cn/html/3351943243/</id>
+    <published>2020-06-09T08:56:44.000Z</published>
+    <updated>2020-06-09T09:01:10.683Z</updated>
+    
+    <content type="html"><![CDATA[<p>Centos 使用Systemctl报Error getting authority: Error initializing authority: Error calling StartServiceByName for org.freedesktop.PolicyKit1: Timeout was reached (g-io-error-quark, 24)<br>在使用centos7.4 安装服务的时候报错：</p><pre><code>Error getting authority: Error initializing authority: Error calling StartServiceByName for org.freedesktop.PolicyKit1: Timeout was reached (g-io-error-quark, 24)</code></pre><p>解决：</p><pre><code>ps -ef |grep polkit</code></pre><p>再安装：</p><pre><code>pyum reinstall polkit</code></pre><p>再重启,就可以解决</p><pre><code>reboot</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Centos 使用Systemctl报Error getting authority: Error initializing authority: Error calling StartServiceByName for org.freedesktop.PolicyKit1
+      
+    
+    </summary>
+    
+    
+      <category term="Systemctl" scheme="http://blog.zyrcc.cn/categories/Systemctl/"/>
+    
+    
+      <category term="Systemctl" scheme="http://blog.zyrcc.cn/tags/Systemctl/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux系统升级时不升内核操作</title>
-    <link href="http://yoursite.com/html/1487789122/"/>
-    <id>http://yoursite.com/html/1487789122/</id>
+    <link href="http://blog.zyrcc.cn/html/1487789122/"/>
+    <id>http://blog.zyrcc.cn/html/1487789122/</id>
     <published>2020-06-09T07:05:39.000Z</published>
     <updated>2020-06-09T08:01:07.080Z</updated>
     
@@ -37,17 +111,17 @@
     </summary>
     
     
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+      <category term="Linux" scheme="http://blog.zyrcc.cn/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.zyrcc.cn/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>hexo杂记</title>
-    <link href="http://yoursite.com/html/3351943245/"/>
-    <id>http://yoursite.com/html/3351943245/</id>
+    <link href="http://blog.zyrcc.cn/html/3351943245/"/>
+    <id>http://blog.zyrcc.cn/html/3351943245/</id>
     <published>2020-06-09T06:58:21.000Z</published>
     <updated>2020-06-09T08:28:13.973Z</updated>
     
@@ -63,17 +137,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://blog.zyrcc.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://blog.zyrcc.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>tomcat</title>
-    <link href="http://yoursite.com/html/2453715852/"/>
-    <id>http://yoursite.com/html/2453715852/</id>
+    <link href="http://blog.zyrcc.cn/html/2453715852/"/>
+    <id>http://blog.zyrcc.cn/html/2453715852/</id>
     <published>2020-06-09T06:06:26.000Z</published>
     <updated>2020-06-09T08:01:07.082Z</updated>
     
@@ -82,12 +156,12 @@
     </summary>
     
     
-      <category term="Tomcat" scheme="http://yoursite.com/categories/Tomcat/"/>
+      <category term="Tomcat" scheme="http://blog.zyrcc.cn/categories/Tomcat/"/>
     
     
-      <category term="tomcat" scheme="http://yoursite.com/tags/tomcat/"/>
+      <category term="tomcat" scheme="http://blog.zyrcc.cn/tags/tomcat/"/>
     
-      <category term="web" scheme="http://yoursite.com/tags/web/"/>
+      <category term="web" scheme="http://blog.zyrcc.cn/tags/web/"/>
     
   </entry>
   
