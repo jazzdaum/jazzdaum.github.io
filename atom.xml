@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-09T07:00:42.560Z</updated>
+  <updated>2020-06-09T07:02:51.629Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/hexo%E6%9D%82%E8%AE%B0/"/>
     <id>http://yoursite.com/hexo%E6%9D%82%E8%AE%B0/</id>
     <published>2020-06-09T06:58:21.000Z</published>
-    <updated>2020-06-09T07:00:42.560Z</updated>
+    <updated>2020-06-09T07:02:51.629Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Hexo杂记"><a href="#Hexo杂记" class="headerlink" title="Hexo杂记"></a>Hexo杂记</h2><p>hexo d后 <code>ERROR Deployer not found: git</code></p><p><code>$ hexo d</code><br><code>ERROR Deployer not found: git</code></p><p><code>npm install --save hexo-deployer-git</code></p><p>如果想要在Hexo放图片可以安装 hexo-asset-image插件：</p><p>在_config.yml文件中设置 post_asset_folder: true</p><p>$npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> – save</p><p>当用户创建文章的时候，同时在post会创建一个一样的文件夹，在图片中放入这个文件</p><p><code>![NAME](文章名字/图片.jpg)</code></p><h5 id="新建文章可用Hexo命令创建："><a href="#新建文章可用Hexo命令创建：" class="headerlink" title="新建文章可用Hexo命令创建："></a>新建文章可用Hexo命令创建：</h5><p>hexo new <title></p><p>生成（文章）时默认生成categories配置项<br>categories有点类似tags，写在文章属性之中，所以需要在文章生成时添加categories属性。<br>编辑/scaffolds/post.md，在最下面添加一行categories</p><p><code>title: hexo杂记</code><br><code>date: 1591685901000</code><br><code>tags:</code><br><code>categories:</code></p><h5 id="hexo-new-page-“categories”"><a href="#hexo-new-page-“categories”" class="headerlink" title="hexo new page “categories”"></a>hexo new page “categories”</h5>]]></content>
+    <content type="html"><![CDATA[<h2 id="Hexo杂记"><a href="#Hexo杂记" class="headerlink" title="Hexo杂记"></a>Hexo杂记</h2><p>hexo d后 <code>ERROR Deployer not found: git</code></p><p><code>$ hexo d</code><br><code>ERROR Deployer not found: git</code></p><p><code>npm install --save hexo-deployer-git</code></p><p>如果想要在Hexo放图片可以安装 hexo-asset-image插件：</p><p>在_config.yml文件中设置 post_asset_folder: true</p><p>$npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> – save</p><p>当用户创建文章的时候，同时在post会创建一个一样的文件夹，在图片中放入这个文件</p><p><code>![NAME](文章名字/图片.jpg)</code></p><h5 id="新建文章可用Hexo命令创建："><a href="#新建文章可用Hexo命令创建：" class="headerlink" title="新建文章可用Hexo命令创建："></a>新建文章可用Hexo命令创建：</h5><p>hexo new <title></p><p>生成（文章）时默认生成categories配置项<br>categories有点类似tags，写在文章属性之中，所以需要在文章生成时添加categories属性。<br>编辑/scaffolds/post.md，在最下面添加一行categories</p><p><code>title: hexo杂记</code><br><code>date: 1591685901000</code><br><code>tags:</code><br><code>categories:</code></p><h5 id="生成分类、归档、标签"><a href="#生成分类、归档、标签" class="headerlink" title="生成分类、归档、标签"></a>生成分类、归档、标签</h5><p>hexo new page “categories”</p>]]></content>
     
     <summary type="html">
     
